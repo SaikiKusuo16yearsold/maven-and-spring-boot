@@ -32,9 +32,9 @@ public class CalculatorController {
     public String multiply(@RequestParam("num1") int firstNumber, @RequestParam("num2") int secondNumber) {
         return calculatorService.multiply(firstNumber, secondNumber);
     }
-//
-//    @GetMapping(path = "/calculator/divide")
-//    public String divide(@RequestParam("num1") int firstNumber, @RequestParam("num2") int secondNumber) throws IllegalAccessException {
-//        return calculatorService.divide(firstNumber, secondNumber);
-//    }
+
+    @GetMapping(path = "/calculator/divide")
+    public String divide(@RequestParam("num1") int firstNumber, @RequestParam("num2") int secondNumber) throws IllegalAccessException {
+        return calculatorService.divide(firstNumber, secondNumber);
+    }
 }
