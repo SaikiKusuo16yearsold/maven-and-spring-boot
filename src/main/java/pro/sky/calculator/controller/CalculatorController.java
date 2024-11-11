@@ -1,10 +1,13 @@
-package pro.sky.calculator;
+package pro.sky.calculator.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import pro.sky.calculator.service.CalculatorServiceImpl;
 
 @RestController
+@RequestMapping(path = "/calculator")
 public class CalculatorController {
     private final CalculatorServiceImpl calculatorService;
 
@@ -18,23 +21,23 @@ public class CalculatorController {
         return calculatorService.hello();
     }
 
-    @GetMapping(path = "/calculator/plus")
+    @GetMapping(path = "/plus")
     public String adding(@RequestParam("num1") int firstNumber, @RequestParam("num2") int secondNumber) {
         return calculatorService.addingNumbers(firstNumber, secondNumber);
     }
 
-    @GetMapping(path = "/calculator/minus")
+    @GetMapping(path = "/minus")
     public String deduction(@RequestParam("num1") int firstNumber, @RequestParam("num2") int secondNumber) {
         return calculatorService.deduction(firstNumber, secondNumber);
     }
 
-    @GetMapping(path = "/calculator/multiply")
+    @GetMapping(path = "/multiply")
     public String multiply(@RequestParam("num1") int firstNumber, @RequestParam("num2") int secondNumber) {
         return calculatorService.multiply(firstNumber, secondNumber);
     }
-//
-//    @GetMapping(path = "/calculator/divide")
-//    public String divide(@RequestParam("num1") int firstNumber, @RequestParam("num2") int secondNumber) throws IllegalAccessException {
-//        return calculatorService.divide(firstNumber, secondNumber);
-//    }
+
+    @GetMapping(path = "/divide")
+    public String divide(@RequestParam("num1") int firstNumber, @RequestParam("num2") int secondNumber) throws IllegalAccessException {
+        return calculatorService.divide(firstNumber, secondNumber);
+    }
 }
